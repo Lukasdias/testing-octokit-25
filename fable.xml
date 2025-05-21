@@ -1,5 +1,5 @@
 <fable>
-  <page id="game" bg_color="#f0f0f0" bg_image="background.png" bg_music="theme.mp3">
+  <page id="game" bg_color="#f0f0f0">
     <!-- Imagem estática -->
     <agent x="300" y="300" image="door_2.png"/>
   </page>
