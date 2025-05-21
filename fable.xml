@@ -1,6 +1,45 @@
 <fable>
-  <page id="game" bg_color="#f0f0f0">
-    <!-- Imagem estática -->
-    <agent x="300" y="300" image="door_2.png"/>
+  <!-- Estado global -->
+  <property name="score" default="0"/>
+  <property name="inventory" default="[]"/>
+  <property name="current_room" default="'start'"/>
+  <property name="has_key" default="false"/>
+  <property name="door_open" default="false"/>
+  <property name="videos" default="[
+    {id: 'intro', src: 'intro.mp4', title: 'Introdução'},
+    {id: 'tutorial', src: 'tutorial.mp4', title: 'Tutorial'},
+    {id: 'ending', src: 'ending.mp4', title: 'Final'}
+  ]"/>
+  <!-- Página inicial -->
+  <page id="start" bg_color="#f0f0f0" bg_image="background.png" bg_music="theme.mp3">
+    <!-- Título -->
+    <agent id="title" x="400" y="50" text="Aventura Interativa" font_size="32px" color="#333" font_family="Arial"/>
+    <!-- Vídeo de introdução -->
+    <agent id="intro_video" x="200" y="100" width="400" height="300" video="intro.mp4"/>
+    <!-- Lista de vídeos -->
+    <container fab-for="video in videos">
+      <agent id="{{video.id}}_container" x="50" y="{{200 + index * 100}}" width="300" height="80" text="{{video.title}}" font_size="18px" color="#666">
+        <agent id="{{video.id}}_player" x="0" y="0" width="100%" height="100%" video="{{video.src}}"/>
+      </agent>
+    </container>
+    <!-- Chave arrastável -->
+    <agent id="key" x="600" y="200" width="50" height="50" image="key.png" draggable="true" on_drag="setValue('dragging_key', true)"/>
+    <!-- Porta que aceita a chave -->
+    <agent id="door" x="700" y="300" width="100" height="200" image="door_closed.png" drop_accept="key" on_drop="setValue('door_open', true)" show_when="not door_open"/>
+    <!-- Porta aberta -->
+    <agent id="door_open" x="700" y="300" width="100" height="200" image="door_open.png" show_when="door_open"/>
+    <!-- Efeito sonoro -->
+    <agent id="door_sound" x="0" y="0" sound="door_open.mp3" show_when="door_open"/>
+    <!-- Inventário -->
+    <container fab-for="item in inventory">
+      <agent id="{{item.id}}" x="50" y="{{500 + index * 60}}" width="50" height="50" image="{{item.image}}" draggable="true" on_drag="setValue('dragging_item', item.id)"/>
+    </container>
+    <!-- Área de soltura para itens -->
+    <agent id="inventory_drop" x="50" y="500" width="300" height="200" drop_accept="key,book,map" on_drop="setValue('inventory', [...inventory, {id: dragging_item, image: dragging_item + '.png'}])"/>
+    <!-- Mensagens condicionais -->
+    <agent id="key_message" x="400" y="400" text="Você encontrou a chave!" font_size="24px" color="#4CAF50" show_when="has_key and not door_open"/>
+    <agent id="door_message" x="400" y="400" text="A porta está aberta!" font_size="24px" color="#4CAF50" show_when="door_open"/>
+    <!-- Controles de áudio -->
+    <agent id="music_controls" x="700" y="50" width="100" height="40" sound="theme.mp3"/>
   </page>
 </fable>
