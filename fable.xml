@@ -1,14 +1,6 @@
 <fable>
   <page id="game" bg_color="#f0f0f0" bg_image="background.png" bg_music="theme.mp3">
     <!-- Imagem estática -->
-    <agent id="door" x="300" y="300" image="door_2.png"/>
-    <!-- Imagem dinâmica -->
-    <container fab-for="item in inventory">
-      <agent id="{{item.id}}" x="50" y="{{50 + index * 30}}" image="{{item.image}}"/>
-    </container>
-    <!-- Vídeo -->
-    <agent id="intro" x="0" y="0" width="800" height="600" video="intro.mp4"/>
-    <!-- Áudio -->
-    <agent id="sound" x="0" y="0" sound="effect.mp3"/>
+    <agent x="300" y="300" image="door_2.png"/>
   </page>
 </fable>
