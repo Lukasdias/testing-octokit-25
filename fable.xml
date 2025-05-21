@@ -1,7 +1,7 @@
 <fable>
   <page id="game" bg_color="#f0f0f0" bg_image="background.png" bg_music="theme.mp3">
     <!-- Imagem estática -->
-    <agent id="door" x="300" y="300" image="door_closed.png"/>
+    <agent id="door" x="300" y="300" image="door_2.png"/>
     <!-- Imagem dinâmica -->
     <container fab-for="item in inventory">
       <agent id="{{item.id}}" x="50" y="{{50 + index * 30}}" image="{{item.image}}"/>
