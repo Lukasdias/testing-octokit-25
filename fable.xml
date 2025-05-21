@@ -1,3 +1,12 @@
 <fable>
-    <page1/>
+  <page id="game" bg_color="#f0f0f0">
+    <!-- Item arrastável -->
+    <agent id="key" x="100" y="100" image="key.png" draggable="true" on_drag="setValue('dragging_key', true)"/>
+    <!-- Área de soltura -->
+    <agent id="door" x="300" y="300" image="door_closed.png" drop_accept="key" on_drop="setValue('door_open', true)"/>
+    <!-- Lista de itens arrastáveis -->
+    <container fab-for="item in inventory">
+      <agent id="{{item.id}}" x="50" y="{{50 + index * 30}}" image="{{item.image}}" draggable="true" on_drag="setValue('dragging_item', item.id)"/>
+    </container>
+  </page>
 </fable>
