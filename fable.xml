@@ -8,5 +8,6 @@
     <agent id="porta" x="300" y="100" image="door_1.png" width="100" height="200" drop_accept="chave" on_drop="set(porta_aberta, true)"/>
     <agent id="vars" x="40" y="40" text="Porta aberta: $porta_aberta"/>
     <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada"/>
+    <agent id="vars-3" x="40" y="140" text="Count: $count"/>
   </page>
 </fable>
