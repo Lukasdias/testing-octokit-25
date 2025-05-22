@@ -1,48 +1,5 @@
-<fable title="A Caça ao Tesouro">
-  <!-- Propriedades globais -->
-  <property name="tem_chave" default="false"/>
-  <property name="porta_aberta" default="false"/>
-  <property name="baú_aberto" default="false"/>
-  <page id="floresta" name="Floresta">
-    <!-- Mensagem de boas-vindas -->
-    <agent id="boas_vindas" name="mensagem" x="200" y="50" text="Bem-vindo à Caça ao Tesouro! 🏃‍♂️" color="#fff">
-      <directives show_when="!tem_chave"/>
-    </agent>
-    <!-- Chave que pode ser pega -->
-    <agent id="chave" name="chave" x="100" y="100" text="🔑" draggable="true">
-      <events on_drag="setValue('tem_chave', true)"/>
-    </agent>
-    <!-- Porta que aceita a chave -->
-    <agent id="porta" name="porta" x="300" y="100" text="🚪" drop_accept="chave">
-      <events on_drop="setValue('porta_aberta', true)"/>
-      <directives show_when="!porta_aberta"/>
-    </agent>
-    <agent id="porta_aberta" name="porta" x="300" y="100" text="🚪">
-      <directives show_when="porta_aberta"/>
-    </agent>
-    <!-- Baú do tesouro -->
-    <agent id="bau" name="bau" x="500" y="100" text="🎁" drop_accept="chave">
-      <events on_drop="setValue('bau_aberto', true)"/>
-      <directives show_when="!bau_aberto"/>
-    </agent>
-    <agent id="bau_aberto" name="bau" x="500" y="100" text="💎">
-      <directives show_when="bau_aberto"/>
-    </agent>
-    <!-- Mensagens da história -->
-    <agent id="mensagem_chave" name="mensagem" x="400" y="350" text="Você encontrou a chave mágica! 🔑" color="#fff">
-      <directives show_when="tem_chave"/>
-    </agent>
-    <agent id="mensagem_porta" name="mensagem" x="400" y="350" text="A porta se abriu revelando um baú misterioso... 🎁" color="#fff">
-      <directives show_when="porta_aberta"/>
-    </agent>
-    <agent id="mensagem_tesouro" name="mensagem" x="400" y="350" text="Parabéns! Você encontrou o tesouro! 💎" color="#fff">
-      <directives show_when="bau_aberto"/>
-    </agent>
-    <!-- Inventário -->
-    <container fab-for="item in ['chave', 'tesouro']">
-      <agent id="item_inventario" name="item" x="50" y="400" text="{{item === 'chave' ? '🔑' : '💎'}}">
-        <directives show_when="tem_chave && item === 'chave' || bau_aberto && item === 'tesouro'"/>
-      </agent>
-    </container>
+<fable>
+  <page id="start" bg_color="red">
+    <agent x="50%" y="50%" text="hello"/>
   </page>
 </fable>
