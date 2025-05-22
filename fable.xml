@@ -6,8 +6,8 @@
     <agent id="button" x="700" y="0" image="block.png" on_click="set(count, $count + 50)"/>
     <agent id="chave" x="50" y="250" image="block.png" width="50" height="50" draggable="true" on_drag=""/>
     <agent id="porta" x="300" y="100" image="door_1.png" width="100" height="200" drop_accept="chave" on_drop="set(porta_aberta, true)"/>
-    <agent id="vars" x="40" y="40" text="Porta aberta: {{ porta_aberta }}"/>
-    <agent id="vars-2" x="40" y="100" text="Chave colocada: {{ chave_colocada }}"/>
+    <agent id="vars" x="40" y="40" text="Porta aberta: $porta_aberta"/>
+    <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada"/>
     <agent id="count" x="40" y="400" text="Count: $count"/>
   </page>
 </fable>
