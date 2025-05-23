@@ -5,4 +5,7 @@
   <agent id="vars" x="40" y="50" text="Porta aberta: $porta_aberta"/>
   <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada"/>
   <agent id="vars-3" x="40" y="150" text="Count: $count"/>
+  <fab-for each="item in $itens" index="idx">
+    <agent id="item-$idx" x="{100 + 60 * $idx}" y="300" text="Item $idx: $item" image="block.png"/>
+  </fab-for>
 </page>
