@@ -1,3 +1,3 @@
 <page id="ending" bg_color="white">
-  <agent x="0" y="100" color="black" text="minha nova page ending - 1.747.969.129.317"/>
+  <agent id="text" x="0" y="100" color="black" text="minha nova page ending - 1.747.969.129.317"/>
 </page>
