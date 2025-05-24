@@ -1,22 +1,44 @@
 <page id="quarto" bg_color="#e8f5e9">
-  <agent id="button" x="700" y="0" image="block.png" on_click="set(count, $count + 10)"/>
+  <agent id="button" x="700" y="0" image="block.png" on_click="set(count, $count + 10)" />
   <fab-if when="!$chave_colocada">
-    <agent id="chave" x="50" y="250" image="block.png" width="50" height="50" draggable="true" on_drag="set(arrastando_chave, true)"/>
+    <agent
+      id="chave"
+      x="50"
+      y="250"
+      image="block.png"
+      width="50"
+      height="50"
+      draggable="true"
+      on_drag="set(arrastando_chave, true)"
+    />
   </fab-if>
   <fab-if when="$porta_aberta">
-    <agent id="porta-aberta" x="300" y="100" image="door_3.png" width="100" height="200"/>
+    <agent id="porta-aberta" x="300" y="100" image="door_3.png" width="100" height="200" />
   </fab-if>
   <fab-if when="!$porta_aberta">
-    <agent id="porta-fechada" x="300" y="100" image="door_1.png" width="100" 
-      
-      height="200" drop_accept="chave" on_drop="set(porta_aberta, true); set(chave_colocada, true); set(arrastando_chave, false)"/>
+    <agent
+      id="porta-fechada"
+      x="300"
+      y="100"
+      image="door_1.png"
+      width="100"
+      height="200"
+      drop_accept="chave"
+      on_drop="set(porta_aberta, true); set(chave_colocada, true); set(arrastando_chave, false)"
+    />
   </fab-if>
-  <agent id="vars" x="40" y="50" text="Porta aberta: $porta_aberta"/>
-  <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada"/>
-  <agent id="vars-3" x="40" y="150" text="Count: $count"/>
+  <agent id="vars" x="40" y="50" text="Porta aberta: $porta_aberta" />
+  <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada" />
+  <agent id="vars-3" x="40" y="150" text="Count: $count" />
   <fab-for each="idx in $tiles" index="idx">
-    <agent id="tile-$idx" x="$idx * 80" y="500" width="80" height="100" image="block.png"/>
+    <agent id="tile-$idx" x="$idx * 80" y="500" width="80" height="100" image="block.png" />
   </fab-for>
-  <agent id="button-2" x="10" y="335" image="door_3.png" width="100" on_click="goToPage('ending')"/>
-  
+  <agent
+    id="button-2"
+    x="10"
+    y="335"
+    image="door_3.png"
+    width="100"
+    on_click="goToPage('ending')"
+  />
 </page>
