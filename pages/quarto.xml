@@ -15,7 +15,7 @@
   <fab-if when="$porta_aberta">
     <agent id="porta-aberta" x="300" y="100" image="door_3.png" width="100" height="200" />
   </fab-if>
-  <fab-if when="!$porta_aberta">
+  <fab-if when="!$porta_aberta`>
     <agent
       id="porta-fechada"
       x="300"
