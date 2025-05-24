@@ -2,8 +2,13 @@
   <property name="chave_colocada" default="false"/>
   <property name="porta_aberta" default="false"/>
   <property name="arrastando_chave" default="false"/>
-  <property name="tiles" default="[0,1,2,3,4,5,6,7,8,9]"/>
+  <property name="tiles" default="[0,1,2,3,4,5,6,7,8,9]"     />
   <property name="count" default="0"/>
   <quarto/>
   <ending/>
+  <page id="hello">
+    <agent id="text" x="0" y="0">
+        
+    </agent>
+  </page>
 </fable>
