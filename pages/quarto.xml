@@ -7,7 +7,8 @@
     <agent id="porta-aberta" x="300" y="100" image="door_3.png" width="100" height="200"/>
   </fab-if>
   <fab-if when="!$porta_aberta">
-    <agent id="porta-fechada" x="300" y="100" image="door_1.png" width="100" height="200" drop_accept="chave" on_drop="set(porta_aberta, true); set(chave_colocada, true); set(arrastando_chave, false)"/>
+    <agent id="porta-fechada" x="300" y="100" image="door_1.png" width="100" 
+      height="200" drop_accept="chave" on_drop="set(porta_aberta, true); set(chave_colocada, true); set(arrastando_chave, false)"/>
   </fab-if>
   <agent id="vars" x="40" y="50" text="Porta aberta: $porta_aberta"/>
   <agent id="vars-2" x="40" y="100" text="Chave colocada: $chave_colocada"/>
